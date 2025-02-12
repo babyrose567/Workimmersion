@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day1 Docs Image Gallery</title>
+  <style>
+    /* Resetting styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f4f8fb;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+      color: #333;
+
+
+     
+    }
+    
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card-description {
+      padding: 15px;
+      background: #ffffff;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #444;
+    }
+    .div{
+        background-color: aqua;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      max-width: 600px;
+      width: 90%;
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      position: relative;
+      text-align: center;
+      animation: fadeIn 0.5s;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .modal-description {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    /* Back Button Styles */
+    .back-btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #0078d7;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: #005fa3;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .experience-container {
+            border-left: 5px solid #40c9d2; 
+            border-right: 5px solid #40c9d2 ;
+            border-bottom: 5px solid #40c9d2;
+            border-top: 5px solid #40c9d2;
+            padding: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+    
+  </style>
+</head>
+<br>
+<br>
+<br>
+<body>
+  <div class="experience-container">
+    <center>  <h2><b>First Week of my Experience</b></h2>
+       <h4>Date, <span class="w3-opacity">January 13-17, 2014</span></h4></center>
+<br>
+       <p>During my work immersion from January 13 to January 17, I was assigned various tasks related to document processing,
+         organization, and facilitation to support the efficient operations of the office.
+
+           <span>My responsibilities included encoding, scanning, organizing, and ensuring the proper receipt and signing of
+             important documents. 
+            Additionally, I assisted in coordinating with personnel to facilitate approvals and maintain accurate records. </span>
+           <span>Furthermore, I assisted in handling official documents for the Register of Deeds (ROD) and the Provincial Office (P.O.),
+             ensuring that all paperwork was properly processed and documented.</span></p>
+       </div>
+
+      
+
+  
+
+<br>
+<br>
+<br>
+  <div class="gallery-container">
+    <div class="card" onclick="openModal('Organizing the documents', '13.jpg')">
+      <img src="13.jpg" alt="Organizing">
+      <div class="card-description">Organizing</div>
+    </div>
+    <div class="card" onclick="openModal('Encoding the MOA documents in excel', '14.jpg')">
+      <img src="14.jpg" alt="Organizing">
+      <div class="card-description">Encoding</div>
+    </div>
+    <div class="card" onclick="openModal('Locating the Region and then encoding', '15.jpg')">
+      <img src="15.jpg" alt="Recording">
+      <div class="card-description">Locating</div>
+    </div>
+    <div class="card" onclick="openModal('Photocopying the documents', '16.jpg')">
+        <img src="16.jpg" alt="Photocopying">
+        <div class="card-description">Photocopying</div>
+      </div>
+      <div class="card" onclick="openModal('Writing down the received documents in the log book', '17.jpg')">
+        <img src="17.jpg" alt="Organizing">
+        <div class="card-description">Writing down</div>
+      </div>
+  </div>
+<br>
+<br>
+<br>
+<div class="experience-container">
+    <center>  <h2><b>Second Week of my Experience</b></h2>
+       <h4>Date, <span class="w3-opacity">January 20-24, 2014</span></h4></center>
+<br>
+       <p>From January 20 to January 24, a series of clerical and administrative tasks were conducted to facilitate the
+         efficient processing, organization, and documentation of important records.
+           <span>Key responsibilities included securing signatures from the Register of Deeds (ROD),
+             receiving and delivering documents at the P.O. Or. Min., and systematically organizing files for better accessibility.  
+            Additional tasks involved scanning documents, cutting bond papers into A4 size, and preparing document stabs 
+            and record books to ensure proper labeling and tracking. </span>
+           <spap>Photocopying and arranging the storage area were also undertaken to maintain a well-structured filing system.  
+            Throughout this period, emphasis was placed on maintaining an orderly documentation process, ensuring that all 
+            paperwork was properly received, signed, and stored. 
+            These efforts contributed to the efficiency and accuracy of record-keeping.</span>
+       </div>
+
+<br>
+<br>
+<br>
+ <div class="gallery-container">
+   <div class="card" onclick="openModal('Photocopying the documents', '17.1.jpg')">
+     <img src="17.1.jpg" alt="Organizing">
+     <div class="card-description">Photocopying</div>
+   </div>
+   <div class="card" onclick="openModal('Arranging the documents', '21.jpg')">
+     <img src="21.jpg" alt="Arranging">
+     <div class="card-description">Arranging</div>
+   </div>
+   <div class="card" onclick="openModal('Cutting a long bond paper', '22.jpg')">
+     <img src="22.jpg" alt="Cutting">
+     <div class="card-description">Cutting</div>
+   </div>
+   <div class="card" onclick="openModal('Writing down the received documents in the log book', '23.jpg')">
+       <img src="23.jpg" alt="Writing down">
+       <div class="card-description">Writing down</div>
+     </div>
+     <div class="card" onclick="openModal('Intventorying inside the stock room', '24.jpg')">
+       <img src="24.jpg" alt="Intventorying ">
+       <div class="card-description">Intventorying </div>
+     </div>
+ </div>
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Zoomed Image">
+      <div id="modalDescription" class="modal-description"></div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(description, imageUrl) {
+      document.getElementById('imageModal').style.display = 'flex';
+      document.getElementById('modalImage').src = imageUrl;
+      document.getElementById('modalDescription').innerText = description;
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
